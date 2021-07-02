@@ -24,3 +24,14 @@ console.log("hello "+myName);
 //옛날엔 var로 변수 선언했는데 변수 보호가 안되기때문에 const와 let을 만들었다.
 //여전히 사용은 가능하다.
 //주로 const를 쓰고 let은 필요할 때, var은 쓰지 않는다.
+
+
+const amIFat = true;
+console.log(amIFat);
+
+const something = null;
+console.log(something);
+
+let something2;
+//변수는 만들었지만 값을 주지 않음 - undefined
+console.log(something2);
