@@ -122,3 +122,16 @@ const player2 = {
 
 console.log(player2.name);
 player2.sayHello2('legu');
+
+
+//210704 note
+//return
+
+const age = 96;
+function calculateKrAge(ageOfForeigner){
+    return ageOfForeigner + 2;
+}
+
+const krAge = calculateKrAge(age);
+
+console.log(krAge);
