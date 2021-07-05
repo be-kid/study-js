@@ -1,6 +1,6 @@
 /*
-alert("hi");
-*/
+//alert("hi");
+
 console.log(34523465);
 //로그에 출력하기
 
@@ -62,11 +62,11 @@ const playerPoints = 121212;
 const playerHandsome = false;
 const playerFat = 'little bit';
 
-/*
-player.name 
-player.points 
-player.handsome
-*/
+
+//player.name 
+//player.points 
+//player.handsome
+
 //위에 변수로 따로 만드는거보다 아래꺼처럼 나타내는게 보기좋다.
 
 //const player = ['legu',1212,false,'little bit'];
@@ -135,3 +135,81 @@ function calculateKrAge(ageOfForeigner){
 const krAge = calculateKrAge(age);
 
 console.log(krAge);
+
+*/
+//conditionals 조건문
+// if else
+/*
+const age = prompt('How old are you?')
+//prompt -> 사용자에게 창을 띄워주고 물어보기
+//이건 이제 별로여서 안쓴다
+//답을 할때 까지 실행을 멈추기때문
+//입력받는 값은 무조건 string type
+
+//숫자가 필요할 때
+parseInt('15');
+parseInt(age);
+
+// NaN -> Not a Number
+//parseInt 에 'blahblah' 같은 문자열을 넣으면 NaN
+//아예 입력받을 때 숫자로 받기
+const age2 = parseInt(prompt('how old are u?'));
+
+console.log(isNaN(age));
+console.log(isNaN(age2));
+//숫자인지 판단 isNaN -> true -> 숫자가 아니다
+
+if(isNaN(age)){
+    console.log('Please write a number');
+}else if (age<18){
+    console.log('You are too young');
+}else if (age>=18 && age<=50){
+    console.log('You can drink');
+}else{
+    console.log('Thank you for writing your age. You can drink');
+}
+*/
+
+//210705 note
+//The Document Object
+//js가 브라우저를 어떻게 움직이는지
+//브라우저의 콘솔창에 document를 치면 html을 볼 수 있다
+
+//document.title 을 치면 title을 보여준다
+//document.title = "hi" 라고 치면 즉시 타이틀이 바뀐다
+//js는 이미 html에 연결되어있다
+
+//마찬가지로 document.body 를 치면 body부분을 보여준다
+
+//HTML in js
+const title = document.getElementById("title");
+console.log(title);
+console.dir(title); //더 자세히 보여주는 dir
+
+//html  element를 가지고 오는 것을 js에서 할 수 있다는 것
+
+title.innerText = "Got you!";
+
+const getClass = document.getElementsByClassName("hello");
+console.log(getClass);
+console.dir(getClass);
+
+/*
+const hihello = document.getElementsByTagName("h1");
+
+console.log(title);
+//별로인 방법
+*/
+
+const hihello = document.querySelector(".hihello h1");
+console.log(hihello);
+//css 처럼
+//여러개가 있으면 처음 element만 가지고 온다
+
+//모두 가지고 오려면 querySelectorAll 을 사용
+
+
+//document.getElementById("hello");
+//document.querySelector("#hello");
+//둘은 같은 역할
+
