@@ -182,13 +182,13 @@ if(isNaN(age)){
 //마찬가지로 document.body 를 치면 body부분을 보여준다
 
 //HTML in js
-const title = document.getElementById("title");
-console.log(title);
-console.dir(title); //더 자세히 보여주는 dir
+//const title = document.getElementById("title");
+//console.log(title);
+//console.dir(title); //더 자세히 보여주는 dir
 
 //html  element를 가지고 오는 것을 js에서 할 수 있다는 것
 
-title.innerText = "Got you!";
+//title.innerText = "Got you!";
 
 const getClass = document.getElementsByClassName("hello");
 console.log(getClass);
@@ -213,3 +213,161 @@ console.log(hihello);
 //document.querySelector("#hello");
 //둘은 같은 역할
 
+//210707 note
+//app.js 를 html에서 import했기 때문에 건들 수 있다
+//querySelector 는 최고다. css selector처럼
+
+//title.style.color = "blue";
+
+//event를 listen하기 -> 주로 할 일
+/*
+function handleTitleClick(){
+    if (title.style.color === "blue"){
+        title.style.color = "black";
+    }else{
+        title.style.color = "blue";
+    }
+}
+*/
+
+//title.addEventListener("click", handleTitleClick);
+
+//어떤 event를 listen할 것인가
+//구글에 검색하기 또는
+//console.dir() 로 상세내용보고 on붙은 애들 보기
+//event로 쓸 때는 on은 떼어내고 사용
+
+function handleMouseEnter(){
+    title.innerText = "Mouse is here!";
+}
+
+function handleMouseLeave(){
+    title.innerText = "Mouse is gone!";
+}
+
+//title.addEventListener("mouseenter", handleMouseEnter);
+//title.addEventListener("mouseleave", handleMouseLeave);
+
+const red = document.getElementById("red");
+const orange = document.getElementById("orange");
+const yellow = document.getElementById("yellow");
+const green = document.getElementById("green");
+
+function handleRed(){
+    if (red.style.color === "black"){
+        red.style.color = "red";
+    }else{
+        red.style.color = "black";
+    }
+}
+function handleOrange(){
+    if (orange.style.color === "black"){
+        orange.style.color = "orange";
+    }else{
+        orange.style.color = "black";
+    }
+}
+function handleYellow(){
+    if (yellow.style.color === "black"){
+        yellow.style.color = "yellow";
+    }else{
+        yellow.style.color = "black";
+    }
+}
+function handleGreen(){
+    if (green.style.color === "black"){
+        green.style.color = "green";
+    }else{
+        green.style.color = "black";
+    }
+}
+
+//red.addEventListener("mouseenter", handleRed);
+orange.addEventListener("mouseenter", handleOrange);
+yellow.addEventListener("mouseenter", handleYellow);
+green.addEventListener("mouseenter", handleGreen);
+
+//title.addEventListener("click", handleTitleClick);
+//위에서 이렇게 썼던 것을 아래처럼 쓸 수 있음
+//title.onclick = handleTitleClick;
+red.onmouseenter = handleRed;
+
+//하지만 addEeventListener를 쓰면 
+//나중에 removeEventListener를 통해 event listener를 제거할 수 있다
+
+function handleWindowResize(){
+    document.body.style.backgroundColor = "tomato";
+}
+
+window.addEventListener("resize", handleWindowResize);
+
+function handleWindowCopy(){
+    alert("copier!");
+}
+
+window.addEventListener("copy", handleWindowCopy);
+
+function handleWindowOffline(){
+    alert("SOS no WIFI");
+}
+
+function handleWindowOnline(){
+    alert("ALL GOOD");
+}
+window.addEventListener("offline", handleWindowOffline);
+window.addEventListener("online", handleWindowOnline);
+
+// title.style.color 매번 힘들게 쓰지 말고 변수 선언해서 쓰기
+// const currenColor = title.style.color;
+// let newColor; 이런식으로
+/*
+function handleTitleClick(){
+    const currenColor = title.style.color;
+    let newColor;
+    if (currenColor === "black"){
+        newColor = "tomato";
+    }else{
+        newColor = "black";
+    }
+    title.style.color = newColor;
+}
+*/
+// 근데 css에서 할 수 있는건 css에서 하는게 깔끔
+
+const h1 = document.querySelector("h1");
+/* 별로 안좋은 방법
+function handleTitleClick(){
+    const activeClass = "active";
+    if(h1.className===activeClass){
+        h1.className = "";
+    }else{
+        h1.className = activeClass;
+    }
+}
+// "active" 같은 문자열을 여러번 쓰는 것 보다는
+// 변수로 만들어서 쓰면 error를 줄일 수 있다
+h1.addEventListener("click", handleTitleClick);
+*/
+// 근데 위와 같은 방법은 기존의 class를 지워버림
+// 먼저 있는 것을 보존하면서 쓸 수 있어야 한다
+
+// classList 사용하기
+function handleTitleClick(){
+    /*
+    const activeClass = "active";
+    if (h1.classList.contains(activeClass)){
+        h1.classList.remove(activeClass);
+    }else{
+        h1.classList.add(activeClass);
+    }
+    */
+   h1.classList.toggle("active");
+}
+h1.addEventListener("click",handleTitleClick);
+//근데 toggle을 사용하면 더 간단하다
+//classList에 해당 class가 있으면 제거, 없으면 추가
+
+//정리
+//js 에서 css 직접 바꾸지 않는다
+//css에서 할 수 있는건 css에서.
+//js에서는 정의된 css를 적용시켜주는 일을 하는게 깔끔
